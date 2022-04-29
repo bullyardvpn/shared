@@ -1,0 +1,10 @@
+[Back]
+
+SET
+@olduser = "testtest",
+@newuser= "test123",
+@password = "blablabla";
+
+UPDATE account
+SET username = @newuser, v='', sha_pass_hash = ( SHA1(CONCAT(UPPER(@newuser), ':', UPPER (@password))) )
+WHERE username = @olduser;
